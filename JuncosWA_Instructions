@@ -1,0 +1,22 @@
+En terminal correr lo siguiente:
+
+1. curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+
+2. sudo apt-get install -y nodejs
+
+3. sudo npm install npm@latest -g
+
+4. npm install -g @angular/cli
+
+5. npm i --s firebase @angular/fire
+
+6. npm install ngx-toastr --save
+
+7. npm install @angular/animations --save
+
+Para levantar la pagina:
+
+1. ng serve --open
+2. localhost:4200
+
+
