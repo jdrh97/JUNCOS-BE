@@ -2,4 +2,7 @@ npm install
 
 npm install --save hammerjs
 
+npm i bootstrap jquery popper.js ngx-spinner -S
+
+
 
