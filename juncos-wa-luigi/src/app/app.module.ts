@@ -4,6 +4,10 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { FormsModule } from "@angular/forms";
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -15,17 +19,14 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { AppRoutingModule , routingComponents} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
-import { UsersComponent } from './users/users.component';
-import { UserComponent } from './users/user/user.component';
-import { UserListComponent } from './users/user-list/user-list.component';
 import { UserService } from './shared/user.service';
 
 
 import 'hammerjs';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MainNavComponent } from './main-nav/main-nav.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatTableModule} from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { DataTableLugaresComponent } from './datatables/data-table-lugares/data-table-lugares.component';
 import { DataTableMedalleroComponent } from './datatables/data-table-medallero/data-table-medallero.component';
@@ -33,19 +34,26 @@ import { DataTableParticipantesComponent } from './datatables/data-table-partici
 import { DataTableUniversidadesComponent } from './datatables/data-table-universidades/data-table-universidades.component';
 import { DataTableEventosComponent } from './datatables/data-table-eventos/data-table-eventos.component';
 
+//FISH
+import { Page404Component } from './page404/page404.component';
+import { LoginComponent } from './users/login/login.component';
+import { RegisterComponent } from './users/register/register.component';
+import { ProfileComponent } from './users/profile/profile.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
-    UserComponent,
-    UserListComponent,
     routingComponents,
     MainNavComponent,
     DataTableLugaresComponent,
     DataTableMedalleroComponent,
     DataTableParticipantesComponent,
     DataTableUniversidadesComponent,
-    DataTableEventosComponent
+    DataTableEventosComponent,
+    Page404Component,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -69,10 +77,11 @@ import { DataTableEventosComponent } from './datatables/data-table-eventos/data-
     MatSortModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    AngularFireAuthModule // imports firebase/auth, only needed for auth features
-    
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
   ],
-  providers: [UserService],
+  providers: [AngularFireAuth, AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

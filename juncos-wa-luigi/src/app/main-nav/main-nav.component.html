@@ -1,5 +1,50 @@
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+    <a class="navbar-brand" routerLink="/">{{app_name}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" *ngIf="!isLogged">
+          <a class="nav-link" routerLink="/user/login">Login
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="isLogged">
+          <a href="#" class="nav-link" (click)="onLogout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+</nav>
 <mat-sidenav-container class="sidenav-container" >
-  <mat-sidenav  style="width: 20%" #drawer class="sidenav" fixedInViewport="false"
+    <mat-sidenav-content >
+        <mat-toolbar >
+          <!-- <button
+          
+            type="button"
+            aria-label="Toggle sidenav"
+           
+            >
+            <mat-icon  style="float:right">menu</mat-icon>
+          </button> -->
+          
+          <button
+          
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="drawer.toggle()"
+            *ngIf="isHandset$ | async">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <span></span>
+        </mat-toolbar>
+        <ng-content></ng-content>
+        <!-- Add Content Here -->
+      </mat-sidenav-content>
+  <mat-sidenav  style="width: 20%" #drawer class="sidenav" fixedInViewport="false" *ngIf='isLogged'
       
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -28,33 +73,7 @@
     </mat-nav-list>
 
   </mat-sidenav>
-
-  <mat-sidenav-content >
-    <mat-toolbar >
-      <!-- <button
-      
-        type="button"
-        aria-label="Toggle sidenav"
-       
-        >
-        <mat-icon  style="float:right">menu</mat-icon>
-      </button> -->
-      
-      <button
-      
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span></span>
-    </mat-toolbar>
-    <ng-content></ng-content>
-    <!-- Add Content Here -->
-  </mat-sidenav-content>
-
   
 </mat-sidenav-container>
+</body>
 
