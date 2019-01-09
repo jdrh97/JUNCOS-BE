@@ -39,6 +39,7 @@ import { Page404Component } from './page404/page404.component';
 import { LoginComponent } from './users/login/login.component';
 import { RegisterComponent } from './users/register/register.component';
 import { ProfileComponent } from './users/profile/profile.component';
+import { CsvComponent } from './csv/csv.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ProfileComponent } from './users/profile/profile.component';
     Page404Component,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    CsvComponent
   ],
   imports: [
     BrowserModule,
